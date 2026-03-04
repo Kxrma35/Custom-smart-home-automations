@@ -3,27 +3,33 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Smart Home  Home</title>
+  <title>Smart Home - Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hero-icon-js/hero-icon-outline.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-
+  <link rel="stylesheet" href="home.css">
 </head>
 <body style="display:flex;flex-direction:column;height:100%;overflow:hidden;">
+<div id="toast"></div>
 <div class="app-shell" style="display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden;">
 
   <!-- SIDEBAR -->
   <aside class="sidebar" style="width:240px;min-width:240px;background:#0d0f24;border-right:1px solid rgba(255,255,255,.07);flex-direction:column;padding:24px 16px;gap:4px;overflow:hidden;">
     <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;margin-bottom:20px;">
-      <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#a855f7);display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 21V12h6v9"/></svg></div>
+      <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#a855f7);display:flex;align-items:center;justify-content:center;">
+        <hero-icon-outline name="home" width="18" height="18" style="color:white;"></hero-icon-outline>
+      </div>
       <span style="color:white;font-weight:700;font-size:16px;">Smart Home</span>
     </div>
-    <a href="home.html"     class="sidebar-link active"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 21V12h6v9"/></svg>Home</a>
-    <a href="rooms.html"    class="sidebar-link"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" stroke-width="2"/></svg>Rooms</a>
-    <a href="devices.html"  class="sidebar-link"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>Devices</a>
-    <a href="settings.html" class="sidebar-link"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke-width="2"/></svg>Settings</a>
+    <a href="home.html"     class="sidebar-link active"><hero-icon-outline name="home"           width="20" height="20"></hero-icon-outline>Home</a>
+    <a href="rooms.html"    class="sidebar-link"       ><hero-icon-outline name="view-grid"      width="20" height="20"></hero-icon-outline>Rooms</a>
+    <a href="devices.html"  class="sidebar-link"       ><hero-icon-outline name="lightning-bolt" width="20" height="20"></hero-icon-outline>Devices</a>
+    <a href="settings.html" class="sidebar-link"       ><hero-icon-outline name="cog"            width="20" height="20"></hero-icon-outline>Settings</a>
     <div style="margin-top:auto;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);">
-      <div style="width:34px;height:34px;border-radius:50%;background:rgba(139,92,246,.3);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" fill="none" stroke="#a78bfa" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></div>
-      <div><div style="color:white;font-size:13px;font-weight:600;">John Doe</div><div style="color:rgba(255,255,255,.4);font-size:11px;">Admin</div></div>
+      <div style="width:34px;height:34px;border-radius:50%;background:rgba(139,92,246,.3);display:flex;align-items:center;justify-content:center;">
+        <hero-icon-outline name="user" width="16" height="16" style="color:#a78bfa;"></hero-icon-outline>
+      </div>
+      <div><div style="color:white;font-size:13px;font-weight:600;">Karma Kioko</div><div style="color:rgba(255,255,255,.4);font-size:11px;">Admin</div></div>
     </div>
   </aside>
 
@@ -32,55 +38,136 @@
 
     <!-- Hero -->
     <div class="hero-gradient" style="padding:32px 24px 28px;flex-shrink:0;position:relative;">
-      <div style="position:absolute;top:20px;right:20px;"><div style="width:40px;height:40px;border-radius:50%;border:2px solid rgba(255,255,255,.3);background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></div></div>
-      <h1 style="color:white;font-size:clamp(22px,4vw,32px);font-weight:800;margin:0 0 4px;">Good Morning</h1>
-      <p style="color:rgba(255,255,255,.7);font-size:14px;margin:0 0 20px;">Your home is running smoothly</p>
+      <div id="mode-badge"> Normal</div>
+      <div style="position:absolute;top:20px;right:20px;">
+        <div style="width:40px;height:40px;border-radius:50%;border:2px solid rgba(255,255,255,.3);background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;">
+          <hero-icon-outline name="user" width="18" height="18" style="color:white;"></hero-icon-outline>
+        </div>
+      </div>
+      <h1 id="greeting" style="color:white;font-size:clamp(22px,4vw,32px);font-weight:800;margin:0 0 4px;">Good Morning</h1>
+      <p id="status-text" style="color:rgba(255,255,255,.7);font-size:14px;margin:0 0 20px;">Your home is running smoothly</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:520px;">
         <div class="stat-card" style="padding:16px;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><div style="width:28px;height:28px;border-radius:50%;background:rgba(251,146,60,.2);display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" fill="none" stroke="#fb923c" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><span style="color:rgba(255,255,255,.8);font-size:13px;font-weight:500;">Active Devices</span></div>
-          <div style="color:white;font-size:32px;font-weight:800;line-height:1;">7<span style="color:rgba(255,255,255,.4);font-size:20px;font-weight:600;">/12</span></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(251,146,60,.2);display:flex;align-items:center;justify-content:center;">
+              <hero-icon-outline name="lightning-bolt" width="14" height="14" style="color:#fb923c;"></hero-icon-outline>
+            </div>
+            <span style="color:rgba(255,255,255,.8);font-size:13px;font-weight:500;">Active Devices</span>
+          </div>
+          <div style="color:white;font-size:32px;font-weight:800;line-height:1;"><span id="active-count">7</span><span style="color:rgba(255,255,255,.4);font-size:20px;font-weight:600;">/12</span></div>
         </div>
         <div class="stat-card" style="padding:16px;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;"><div style="width:28px;height:28px;border-radius:50%;background:rgba(147,197,253,.15);display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" fill="none" stroke="#93c5fd" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div><span style="color:rgba(255,255,255,.8);font-size:13px;font-weight:500;">Energy</span></div>
-          <div style="color:white;font-size:32px;font-weight:800;line-height:1;">2.4<span style="color:rgba(255,255,255,.6);font-size:18px;font-weight:600;margin-left:4px;">kW</span></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(147,197,253,.15);display:flex;align-items:center;justify-content:center;">
+              <hero-icon-outline name="sun" width="14" height="14" style="color:#93c5fd;"></hero-icon-outline>
+            </div>
+            <span style="color:rgba(255,255,255,.8);font-size:13px;font-weight:500;">Energy</span>
+          </div>
+          <div style="color:white;font-size:32px;font-weight:800;line-height:1;"><span id="energy-val">2.4</span><span style="color:rgba(255,255,255,.6);font-size:18px;font-weight:600;margin-left:4px;">kW</span></div>
         </div>
       </div>
     </div>
 
     <!-- Body -->
     <div class="no-scroll" style="flex:1;padding:22px 24px;background:#0f1021;">
+
       <!-- Quick Actions -->
       <div style="background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:20px;padding:20px;margin-bottom:26px;">
         <h2 style="color:white;font-weight:700;font-size:15px;margin:0 0 16px;">Quick Actions</h2>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
-          <div class="qa-btn"><div class="qa-orange" style="width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" fill="none" stroke="white" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div><span style="color:rgba(255,255,255,.8);font-size:12px;font-weight:500;">All On</span></div>
-          <div class="qa-btn"><div class="qa-purple" style="width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" fill="white" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg></div><span style="color:rgba(255,255,255,.8);font-size:12px;font-weight:500;">Sleep</span></div>
-          <div class="qa-btn"><div class="qa-pink" style="width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><span style="color:rgba(255,255,255,.8);font-size:12px;font-weight:500;">Away</span></div>
-          <div class="qa-btn"><div class="qa-green" style="width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 21V12h6v9"/></svg></div><span style="color:rgba(255,255,255,.8);font-size:12px;font-weight:500;">Home</span></div>
+          <div class="qa-btn" id="qa-allon" onclick="setMode('allon')">
+            <div class="qa-icon qa-orange"><hero-icon-outline name="sun" width="22" height="22" style="color:white;"></hero-icon-outline></div>
+            <span style="color:rgba(255,255,255,.8);font-size:12px;font-weight:500;">All On</span>
+          </div>
+          <div class="qa-btn" id="qa-sleep" onclick="setMode('sleep')">
+            <div class="qa-icon qa-purple"><hero-icon-outline name="moon" width="22" height="22" style="color:white;"></hero-icon-outline></div>
+            <span style="color:rgba(255,255,255,.8);font-size:12px;font-weight:500;">Sleep</span>
+          </div>
+          <div class="qa-btn" id="qa-away" onclick="setMode('away')">
+            <div class="qa-icon qa-pink"><hero-icon-outline name="lightning-bolt" width="22" height="22" style="color:white;"></hero-icon-outline></div>
+            <span style="color:rgba(255,255,255,.8);font-size:12px;font-weight:500;">Away</span>
+          </div>
+          <div class="qa-btn" id="qa-home" onclick="setMode('home')">
+            <div class="qa-icon qa-green"><hero-icon-outline name="home" width="22" height="22" style="color:white;"></hero-icon-outline></div>
+            <span style="color:rgba(255,255,255,.8);font-size:12px;font-weight:500;">Home</span>
+          </div>
         </div>
       </div>
 
-      <!-- Favorite Devices/most used devices -->
+      <!-- Favorite Devices/Frequently used devices -->
       <h2 style="color:white;font-weight:700;font-size:15px;margin:0 0 14px;">Favorite Devices</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:13px;padding-bottom:20px;">
-        <div class="device-card dc-warm"><div class="dot-blue" style="width:12px;height:12px;border-radius:50%;position:absolute;top:14px;right:14px;"></div><div class="di-warm" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;"><svg width="22" height="22" fill="none" stroke="#fcd34d" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m1.343-5.657l-.707-.707M12 21a9 9 0 01-6.364-15.364A9 9 0 0112 3a9 9 0 016.364 15.364A9 9 0 0112 21z"/></svg></div><div style="color:white;font-weight:700;font-size:13px;">Living Room Light</div><div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:3px;">Living Room</div></div>
-        <div class="device-card dc-red"><div class="dot-blue" style="width:12px;height:12px;border-radius:50%;position:absolute;top:14px;right:14px;"></div><div class="di-red" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;"><svg width="22" height="22" fill="none" stroke="#fb923c" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div style="color:white;font-weight:700;font-size:13px;">Main Thermostat</div><div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:3px;">Living Room</div><div class="temp-badge" style="margin-top:8px;">22°C</div></div>
-        <div class="device-card dc-green"><div class="dot-green" style="width:12px;height:12px;border-radius:50%;position:absolute;top:14px;right:14px;"></div><div class="di-green" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;"><svg width="22" height="22" fill="none" stroke="#86efac" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 018 0v4"/></svg></div><div style="color:white;font-weight:700;font-size:13px;">Front Door Lock</div><div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:3px;">Entrance</div></div>
-        <div class="device-card dc-teal"><div class="dot-blue" style="width:12px;height:12px;border-radius:50%;position:absolute;top:14px;right:14px;"></div><div class="di-teal" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;"><svg width="22" height="22" fill="none" stroke="#93c5fd" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><circle cx="12" cy="13" r="3" stroke-width="2"/></svg></div><div style="color:white;font-weight:700;font-size:13px;">Security Camera</div><div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:3px;">Front Yard</div></div>
-        <div class="device-card dc-dark"><div class="dot-gray" style="width:12px;height:12px;border-radius:50%;position:absolute;top:14px;right:14px;"></div><div class="di-dark" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;"><svg width="22" height="22" fill="none" stroke="rgba(255,255,255,.3)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m1.343-5.657l-.707-.707M12 21a9 9 0 01-6.364-15.364A9 9 0 0112 3a9 9 0 016.364 15.364A9 9 0 0112 21z"/></svg></div><div style="color:rgba(255,255,255,.5);font-weight:700;font-size:13px;">Bedroom Light</div><div style="color:rgba(255,255,255,.28);font-size:12px;margin-top:3px;">Bedroom</div></div>
-        <div class="device-card dc-red"><div class="dot-blue" style="width:12px;height:12px;border-radius:50%;position:absolute;top:14px;right:14px;"></div><div class="di-red" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;"><svg width="22" height="22" fill="none" stroke="#fb923c" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9"/></svg></div><div style="color:white;font-weight:700;font-size:13px;">Bedroom Thermostat</div><div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:3px;">Bedroom</div><div class="temp-badge" style="margin-top:8px;">20°C</div></div>
+
+        <div class="device-card dc-warm" id="card-light1" onclick="toggleDevice('light1','Living Room Light')">
+          <div class="dot dot-on" id="dot-light1"></div>
+          <div class="di-wrap di-warm"><hero-icon-outline name="light-bulb" width="22" height="22" style="color:#fcd34d;"></hero-icon-outline></div>
+          <div style="color:white;font-weight:700;font-size:13px;">Living Room Light</div>
+          <div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:3px;">Living Room</div>
+          <div id="status-light1" style="font-size:11px;margin-top:5px;color:#4ade80;font-weight:600;">● ON</div>
+        </div>
+
+        <div class="device-card dc-red" id="card-thermo1" onclick="toggleDevice('thermo1','Main Thermostat')">
+          <div class="dot dot-blue" id="dot-thermo1"></div>
+          <div class="di-wrap di-red" style="margin-bottom:12px;"><hero-icon-outline name="thermometer" width="22" height="22" style="color:#fb923c;"></hero-icon-outline></div>
+          <div style="color:white;font-weight:700;font-size:13px;">Main Thermostat</div>
+          <div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:3px;">Living Room</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:8px;">
+            <button onclick="adjustTemp(event,'thermo1',-1)" style="background:rgba(255,255,255,.1);border:none;color:white;width:22px;height:22px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;">-</button>
+            <div class="temp-badge" id="temp-thermo1" style="margin-top:0;">22°C</div>
+            <button onclick="adjustTemp(event,'thermo1',1)" style="background:rgba(255,255,255,.1);border:none;color:white;width:22px;height:22px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;">+</button>
+          </div>
+        </div>
+
+        <div class="device-card dc-green" id="card-lock1" onclick="toggleLock('lock1','Front Door Lock')">
+          <div class="dot dot-on" id="dot-lock1"></div>
+          <div class="di-wrap di-green"><hero-icon-outline name="lock-closed" id="icon-lock1" width="22" height="22" style="color:#86efac;"></hero-icon-outline></div>
+          <div style="color:white;font-weight:700;font-size:13px;">Front Door Lock</div>
+          <div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:3px;">Entrance</div>
+          <div id="status-lock1" style="font-size:11px;margin-top:5px;color:#4ade80;font-weight:600;">● LOCKED</div>
+        </div>
+
+        <div class="device-card dc-teal" id="card-cam1" onclick="toggleDevice('cam1','Security Camera')">
+          <div class="dot dot-blue" id="dot-cam1"></div>
+          <div class="di-wrap di-teal"><hero-icon-outline name="camera" width="22" height="22" style="color:#93c5fd;"></hero-icon-outline></div>
+          <div style="color:white;font-weight:700;font-size:13px;">Security Camera</div>
+          <div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:3px;">Front Yard</div>
+          <div id="status-cam1" style="font-size:11px;margin-top:5px;color:#818cf8;font-weight:600;">● RECORDING</div>
+        </div>
+
+        <div class="device-card dc-dark off" id="card-light2" onclick="toggleDevice('light2','Bedroom Light')">
+          <div class="dot dot-off" id="dot-light2"></div>
+          <div class="di-wrap di-dark"><hero-icon-outline name="light-bulb" width="22" height="22" style="color:rgba(255,255,255,.3);"></hero-icon-outline></div>
+          <div style="color:rgba(255,255,255,.55);font-weight:700;font-size:13px;">Bedroom Light</div>
+          <div style="color:rgba(255,255,255,.28);font-size:12px;margin-top:3px;">Bedroom</div>
+          <div id="status-light2" style="font-size:11px;margin-top:5px;color:#4b5563;font-weight:600;">● OFF</div>
+        </div>
+
+        <div class="device-card dc-red" id="card-thermo2" onclick="toggleDevice('thermo2','Bedroom Thermostat')">
+          <div class="dot dot-blue" id="dot-thermo2"></div>
+          <div class="di-wrap di-red" style="margin-bottom:12px;"><hero-icon-outline name="thermometer" width="22" height="22" style="color:#fb923c;"></hero-icon-outline></div>
+          <div style="color:white;font-weight:700;font-size:13px;">Bedroom Thermostat</div>
+          <div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:3px;">Bedroom</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:8px;">
+            <button onclick="adjustTemp(event,'thermo2',-1)" style="background:rgba(255,255,255,.1);border:none;color:white;width:22px;height:22px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;">-</button>
+            <div class="temp-badge" id="temp-thermo2" style="margin-top:0;">20°C</div>
+            <button onclick="adjustTemp(event,'thermo2',1)" style="background:rgba(255,255,255,.1);border:none;color:white;width:22px;height:22px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;">+</button>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- BOTTOM NAV for the mobile devices -->
+  <!-- BOTTOM NAV FOR MOBILE DEVICES -->
   <nav class="bottom-nav" style="background:#12142a;border-top:1px solid rgba(255,255,255,.08);flex-shrink:0;justify-content:space-around;align-items:center;padding:8px 4px 14px;">
-    <a href="home.html"     class="mnav-btn"><div class="mnav-pill" style="background:rgba(139,92,246,.25);"><svg width="24" height="24" fill="none" stroke="#a78bfa" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 21V12h6v9"/></svg></div><span class="mnav-label" style="color:#a78bfa;">Home</span></a>
-    <a href="rooms.html"    class="mnav-btn"><div class="mnav-pill"><svg width="24" height="24" fill="none" stroke="rgba(255,255,255,.45)" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" stroke-width="2"/></svg></div><span class="mnav-label" style="color:rgba(255,255,255,.45);">Rooms</span></a>
-    <a href="devices.html"  class="mnav-btn"><div class="mnav-pill"><svg width="24" height="24" fill="none" stroke="rgba(255,255,255,.45)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><span class="mnav-label" style="color:rgba(255,255,255,.45);">Devices</span></a>
-    <a href="settings.html" class="mnav-btn"><div class="mnav-pill"><svg width="24" height="24" fill="none" stroke="rgba(255,255,255,.45)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke-width="2"/></svg></div><span class="mnav-label" style="color:rgba(255,255,255,.45);">Settings</span></a>
+    <a href="home.html"     class="mnav-btn"><div class="mnav-pill" style="background:rgba(139,92,246,.25);"><hero-icon-outline name="home"           width="24" height="24" style="color:#a78bfa;"></hero-icon-outline></div><span class="mnav-label" style="color:#a78bfa;">Home</span></a>
+    <a href="rooms.html"    class="mnav-btn"><div class="mnav-pill"><hero-icon-outline name="view-grid"      width="24" height="24" style="color:rgba(255,255,255,.45);"></hero-icon-outline></div><span class="mnav-label" style="color:rgba(255,255,255,.45);">Rooms</span></a>
+    <a href="devices.html"  class="mnav-btn"><div class="mnav-pill"><hero-icon-outline name="lightning-bolt" width="24" height="24" style="color:rgba(255,255,255,.45);"></hero-icon-outline></div><span class="mnav-label" style="color:rgba(255,255,255,.45);">Devices</span></a>
+    <a href="settings.html" class="mnav-btn"><div class="mnav-pill"><hero-icon-outline name="cog"            width="24" height="24" style="color:rgba(255,255,255,.45);"></hero-icon-outline></div><span class="mnav-label" style="color:rgba(255,255,255,.45);">Settings</span></a>
   </nav>
 
 </div>
+
+  <script src="home.js" defer></script>
 </body>
 </html>
