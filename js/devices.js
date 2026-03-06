@@ -1,11 +1,4 @@
-socket.on('temp-update', (data) => {
-    const tempEl = document.getElementById('pi-temp');
-    if (tempEl) {
-        tempEl.innerText = `CPU: ${data.celsius}°C`;
-        // Optional: Change color if getting too hot
-        tempEl.style.color = data.celsius > 70 ? '#ef4444' : '#4ade80';
-    }
-});
+
 
 
 // Device on/off state
@@ -123,6 +116,17 @@ function clearSearch() {
   document.getElementById('search-input').value = '';
   applyFilters();
 }
+
+socket.on('temp-update', (data) => {
+    const tempEl = document.getElementById('pi-temp');
+    if (tempEl) {
+        tempEl.innerText = `CPU: ${data.celsius}°C`;
+        // Optional: Change color if getting too hot
+        tempEl.style.color = data.celsius > 70 ? '#ef4444' : '#4ade80';
+    }
+});
+
+
 
 // Init
 document.addEventListener('DOMContentLoaded', updateCount);
