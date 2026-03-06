@@ -64,6 +64,18 @@
             <span style="color:rgba(255,255,255,.8);font-size:13px;font-weight:500;">Energy</span>
           </div>
           <div style="color:white;font-size:32px;font-weight:800;line-height:1;"><span id="energy-val">2.4</span><span style="color:rgba(255,255,255,.6);font-size:18px;font-weight:600;margin-left:4px;">kW</span></div>
+
+          <div class="stat-card" style="padding:16px;">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+    <div style="width:28px;height:28px;border-radius:50%;background:rgba(147,197,253,.15);display:flex;align-items:center;justify-content:center;">
+      <hero-icon-outline name="chip" width="14" height="14" style="color:#93c5fd;"></hero-icon-outline>
+    </div>
+    <span style="color:rgba(255,255,255,.8);font-size:13px;font-weight:500;">Pi Temp</span>
+  </div>
+  <div style="color:white;font-size:32px;font-weight:800;line-height:1;">
+    <span id="pi-temp">--.-</span><span style="color:rgba(255,255,255,.6);font-size:18px;font-weight:600;margin-left:4px;">°C</span>
+  </div>
+</div>
         </div>
       </div>
     </div>
@@ -169,5 +181,8 @@
 </div>
 
   <script src="home.js" defer></script>
+  <script src="/socket.io/socket.io.js"></script>
+
+<script src="main.js"></script>
 </body>
 </html>

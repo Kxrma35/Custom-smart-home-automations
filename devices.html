@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Home – Devices</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hero-icon-js/hero-icon-outline.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+</head>
+<body style="display:flex;flex-direction:column;height:100%;overflow:hidden;">
+<div id="toast"></div>
+<div class="app-shell" style="display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden;">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" style="width:240px;min-width:240px;background:#0d0f24;border-right:1px solid rgba(255,255,255,.07);flex-direction:column;padding:24px 16px;gap:4px;overflow:hidden;">
+    <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;margin-bottom:20px;">
+      <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#a855f7);display:flex;align-items:center;justify-content:center;">
+        <hero-icon-outline name="home" width="18" height="18" style="color:white;"></hero-icon-outline>
+      </div>
+      <span style="color:white;font-weight:700;font-size:16px;">Smart Home</span>
+    </div>
+    <a href="home.html"     class="sidebar-link"       ><hero-icon-outline name="home"           width="20" height="20"></hero-icon-outline>Home</a>
+    <a href="rooms.html"    class="sidebar-link"       ><hero-icon-outline name="view-grid"      width="20" height="20"></hero-icon-outline>Rooms</a>
+    <a href="devices.html"  class="sidebar-link active"><hero-icon-outline name="lightning-bolt" width="20" height="20"></hero-icon-outline>Devices</a>
+    <a href="settings.html" class="sidebar-link"       ><hero-icon-outline name="cog"            width="20" height="20"></hero-icon-outline>Settings</a>
+    <div style="margin-top:auto;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);">
+      <div style="width:34px;height:34px;border-radius:50%;background:rgba(139,92,246,.3);display:flex;align-items:center;justify-content:center;">
+        <hero-icon-outline name="user" width="16" height="16" style="color:#a78bfa;"></hero-icon-outline>
+      </div>
+      <div><div style="color:white;font-size:13px;font-weight:600;">John Doe</div><div style="color:rgba(255,255,255,.4);font-size:11px;">Admin</div></div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div style="flex:1;display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;">
+    <div class="hero-gradient" style="padding:32px 24px 28px;flex-shrink:0;">
+      <h1 style="color:white;font-size:clamp(22px,4vw,32px);font-weight:800;margin:0 0 4px;">Devices</h1>
+      <p style="color:rgba(255,255,255,.7);font-size:14px;margin:0;"><span id="active-count">7</span> of 12 devices active</p>
+    </div>
+
+    <div class="no-scroll" style="flex:1;padding:20px 24px;background:#0f1021;">
+
+      <!-- Search -->
+      <div class="search-box" style="margin-bottom:14px;">
+        <hero-icon-outline name="search" width="18" height="18" style="color:rgba(255,255,255,.3);flex-shrink:0;"></hero-icon-outline>
+        <input class="search-input" id="search-input" placeholder="Search devices..." oninput="applyFilters()"/>
+        <span id="clear-search" onclick="clearSearch()" style="color:rgba(255,255,255,.3);cursor:pointer;display:none;font-size:18px;line-height:1;">✕</span>
+      </div>
+
+      <!-- Filters -->
+      <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:18px;scrollbar-width:none;">
+        <div class="fpill active" data-filter="all"      onclick="setFilter(this)">All</div>
+        <div class="fpill"        data-filter="lights"   onclick="setFilter(this)">Lights</div>
+        <div class="fpill"        data-filter="climate"  onclick="setFilter(this)">Climate</div>
+        <div class="fpill"        data-filter="security" onclick="setFilter(this)">Security</div>
+        <div class="fpill"        data-filter="cameras"  onclick="setFilter(this)">Cameras</div>
+        <div class="fpill"        data-filter="other"    onclick="setFilter(this)">Other</div>
+      </div>
+
+      <!-- Device Grid -->
+      <div id="device-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;padding-bottom:20px;">
+
+        <!-- Lights -->
+        <div class="device-card dc-warm" data-id="light1" data-category="lights" data-name="Living Room Light" onclick="toggleDevice(this)">
+          <div class="dot dot-on" id="dot-light1"></div>
+          <div class="di-wrap di-warm"><hero-icon-outline name="light-bulb" width="20" height="20" style="color:#fcd34d;"></hero-icon-outline></div>
+          <div class="dev-name" style="color:white;font-weight:700;font-size:12px;">Living Room Light</div>
+          <div style="color:rgba(255,255,255,.4);font-size:11px;margin-top:3px;">Living Room</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4ade80;font-weight:600;">● ON</div>
+        </div>
+
+        <div class="device-card dc-dark off" data-id="light2" data-category="lights" data-name="Bedroom Light" onclick="toggleDevice(this)">
+          <div class="dot dot-off" id="dot-light2"></div>
+          <div class="di-wrap di-dark"><hero-icon-outline name="light-bulb" width="20" height="20" style="color:rgba(255,255,255,.2);"></hero-icon-outline></div>
+          <div class="dev-name" style="color:rgba(255,255,255,.5);font-weight:700;font-size:12px;">Bedroom Light</div>
+          <div style="color:rgba(255,255,255,.25);font-size:11px;margin-top:3px;">Bedroom</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4b5563;font-weight:600;">● OFF</div>
+        </div>
+
+        <div class="device-card dc-warm" data-id="klight" data-category="lights" data-name="Kitchen Light" onclick="toggleDevice(this)">
+          <div class="dot dot-on" id="dot-klight"></div>
+          <div class="di-wrap di-warm"><hero-icon-outline name="light-bulb" width="20" height="20" style="color:#fcd34d;"></hero-icon-outline></div>
+          <div class="dev-name" style="color:white;font-weight:700;font-size:12px;">Kitchen Light</div>
+          <div style="color:rgba(255,255,255,.4);font-size:11px;margin-top:3px;">Kitchen</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4ade80;font-weight:600;">● ON</div>
+        </div>
+
+        <!-- Climate -->
+        <div class="device-card dc-red" data-id="thermo1" data-category="climate" data-name="Main Thermostat" onclick="toggleDevice(this)">
+          <div class="dot dot-blue" id="dot-thermo1"></div>
+          <div class="di-wrap di-red" style="margin-bottom:8px;"><hero-icon-outline name="thermometer" width="20" height="20" style="color:#fb923c;"></hero-icon-outline></div>
+          <div class="dev-name" style="color:white;font-weight:700;font-size:12px;">Main Thermostat</div>
+          <div style="color:rgba(255,255,255,.4);font-size:11px;margin-top:3px;">Living Room</div>
+          <div style="display:flex;align-items:center;gap:5px;margin-top:7px;">
+            <button onclick="adjTemp(event,'thermo1',-1)" style="background:rgba(255,255,255,.1);border:none;color:white;width:20px;height:20px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">−</button>
+            <div class="temp-badge" id="temp-thermo1" style="margin-top:0;font-size:10px;">22°C</div>
+            <button onclick="adjTemp(event,'thermo1',1)"  style="background:rgba(255,255,255,.1);border:none;color:white;width:20px;height:20px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">+</button>
+          </div>
+        </div>
+
+        <div class="device-card dc-red" data-id="thermo2" data-category="climate" data-name="Bedroom Thermostat" onclick="toggleDevice(this)">
+          <div class="dot dot-blue" id="dot-thermo2"></div>
+          <div class="di-wrap di-red" style="margin-bottom:8px;"><hero-icon-outline name="thermometer" width="20" height="20" style="color:#fb923c;"></hero-icon-outline></div>
+          <div class="dev-name" style="color:white;font-weight:700;font-size:12px;">Bedroom Thermostat</div>
+          <div style="color:rgba(255,255,255,.4);font-size:11px;margin-top:3px;">Bedroom</div>
+          <div style="display:flex;align-items:center;gap:5px;margin-top:7px;">
+            <button onclick="adjTemp(event,'thermo2',-1)" style="background:rgba(255,255,255,.1);border:none;color:white;width:20px;height:20px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">−</button>
+            <div class="temp-badge" id="temp-thermo2" style="margin-top:0;font-size:10px;">20°C</div>
+            <button onclick="adjTemp(event,'thermo2',1)"  style="background:rgba(255,255,255,.1);border:none;color:white;width:20px;height:20px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">+</button>
+          </div>
+        </div>
+
+        <div class="device-card dc-dark off" data-id="fan1" data-category="climate" data-name="Ceiling Fan" onclick="toggleDevice(this)">
+          <div class="dot dot-off" id="dot-fan1"></div>
+          <div class="di-wrap di-dark"><hero-icon-outline name="refresh" width="20" height="20" style="color:rgba(255,255,255,.2);"></hero-icon-outline></div>
+          <div class="dev-name" style="color:rgba(255,255,255,.5);font-weight:700;font-size:12px;">Ceiling Fan</div>
+          <div style="color:rgba(255,255,255,.25);font-size:11px;margin-top:3px;">Bedroom</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4b5563;font-weight:600;">● OFF</div>
+        </div>
+
+        <!-- Security -->
+        <div class="device-card dc-green" data-id="lock1" data-category="security" data-name="Front Door Lock" onclick="toggleLockCard(this,'Front Door Lock')">
+          <div class="dot dot-on" id="dot-lock1"></div>
+          <div class="di-wrap di-green"><hero-icon-outline name="lock-closed" width="20" height="20" style="color:#86efac;"></hero-icon-outline></div>
+          <div class="dev-name" style="color:white;font-weight:700;font-size:12px;">Front Door Lock</div>
+          <div style="color:rgba(255,255,255,.4);font-size:11px;margin-top:3px;">Entrance</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4ade80;font-weight:600;">● LOCKED</div>
+        </div>
+
+        <div class="device-card dc-dark" data-id="lock2" data-category="security" data-name="Back Door Lock" onclick="toggleLockCard(this,'Back Door Lock')">
+          <div class="dot dot-yellow" id="dot-lock2"></div>
+          <div class="di-wrap di-dark"><hero-icon-outline name="lock-open" width="20" height="20" style="color:rgba(255,255,255,.2);"></hero-icon-outline></div>
+          <div class="dev-name" style="color:rgba(255,255,255,.5);font-weight:700;font-size:12px;">Back Door Lock</div>
+          <div style="color:rgba(255,255,255,.25);font-size:11px;margin-top:3px;">Kitchen</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#facc15;font-weight:600;">● UNLOCKED</div>
+        </div>
+
+        <!-- Cameras -->
+        <div class="device-card dc-teal" data-id="cam1" data-category="cameras" data-name="Security Camera" onclick="toggleDevice(this)">
+          <div class="dot dot-blue" id="dot-cam1"></div>
+          <div class="di-wrap di-teal"><hero-icon-outline name="camera" width="20" height="20" style="color:#93c5fd;"></hero-icon-outline></div>
+          <div class="dev-name" style="color:white;font-weight:700;font-size:12px;">Security Camera</div>
+          <div style="color:rgba(255,255,255,.4);font-size:11px;margin-top:3px;">Front Yard</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#818cf8;font-weight:600;">● RECORDING</div>
+        </div>
+
+        <!-- Other -->
+        <div class="device-card dc-dark off" data-id="tv1" data-category="other" data-name="Smart TV" onclick="toggleDevice(this)">
+          <div class="dot dot-off" id="dot-tv1"></div>
+          <div class="di-wrap di-dark"><hero-icon-outline name="desktop-computer" width="20" height="20" style="color:rgba(255,255,255,.2);"></hero-icon-outline></div>
+          <div class="dev-name" style="color:rgba(255,255,255,.5);font-weight:700;font-size:12px;">Smart TV</div>
+          <div style="color:rgba(255,255,255,.25);font-size:11px;margin-top:3px;">Living Room</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4b5563;font-weight:600;">● OFF</div>
+        </div>
+
+        <div class="device-card dc-purple" data-id="speaker" data-category="other" data-name="Smart Speaker" onclick="toggleDevice(this)">
+          <div class="dot dot-on" id="dot-speaker"></div>
+          <div class="di-wrap di-purple"><hero-icon-outline name="microphone" width="20" height="20" style="color:#e879f9;"></hero-icon-outline></div>
+          <div class="dev-name" style="color:white;font-weight:700;font-size:12px;">Smart Speaker</div>
+          <div style="color:rgba(255,255,255,.4);font-size:11px;margin-top:3px;">Kitchen</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4ade80;font-weight:600;">● ON</div>
+        </div>
+
+        <div class="device-card dc-dark off" data-id="coffee" data-category="other" data-name="Coffee Maker" onclick="toggleDevice(this)">
+          <div class="dot dot-off" id="dot-coffee"></div>
+          <div class="di-wrap di-dark"><hero-icon-outline name="beaker" width="20" height="20" style="color:rgba(255,255,255,.2);"></hero-icon-outline></div>
+          <div class="dev-name" style="color:rgba(255,255,255,.5);font-weight:700;font-size:12px;">Coffee Maker</div>
+          <div style="color:rgba(255,255,255,.25);font-size:11px;margin-top:3px;">Kitchen</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4b5563;font-weight:600;">● OFF</div>
+        </div>
+
+      </div>
+
+      <!-- Empty state -->
+      <div class="empty-state" id="empty-state">
+        <hero-icon-outline name="search" width="40" height="40" style="color:rgba(255,255,255,.2);"></hero-icon-outline>
+        <div style="font-size:14px;font-weight:600;color:rgba(255,255,255,.3);">No devices found</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.2);">Try a different search or filter</div>
+      </div>
+
+    </div>
+  </div>
+
+ <!-- BOTTOM NAV FOR MOBILE DEVICES -->
+  <nav class="bottom-nav" style="background:#12142a;border-top:1px solid rgba(255,255,255,.08);flex-shrink:0;justify-content:space-around;align-items:center;padding:8px 4px 14px;">
+    <a href="home.html"     class="mnav-btn"><div class="mnav-pill"><svg width="24" height="24" fill="none" stroke="rgba(255,255,255,.45)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 21V12h6v9"/></svg></div><span class="mnav-label" style="color:rgba(255,255,255,.45);">Home</span></a>
+    <a href="rooms.html"    class="mnav-btn"><div class="mnav-pill" style="background:rgba(139,92,246,.25);"><svg width="24" height="24" fill="none" stroke="#a78bfa" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" stroke-width="2"/></svg></div><span class="mnav-label" style="color:#a78bfa;">Rooms</span></a>
+    <a href="devices.html"  class="mnav-btn"><div class="mnav-pill"><svg width="24" height="24" fill="none" stroke="rgba(255,255,255,.45)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><span class="mnav-label" style="color:rgba(255,255,255,.45);">Devices</span></a>
+    <a href="settings.html" class="mnav-btn"><div class="mnav-pill"><svg width="24" height="24" fill="none" stroke="rgba(255,255,255,.45)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke-width="2"/></svg></div><span class="mnav-label" style="color:rgba(255,255,255,.45);">Settings</span></a>
+  </nav>
+</div>
+
+  <script src="devices.js" defer></script>
+<script src="/socket.io/socket.io.js"></script>
+</body>
+</html>
