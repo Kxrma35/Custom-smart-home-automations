@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Smart Home – Devices</title>
+  <title>Smart Home - Devices</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/hero-icon-js/hero-icon-outline.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="devices.css">
+<link rel="stylesheet" href="css/devices.css">
 
 </head>
 <body style="display:flex;flex-direction:column;height:100%;overflow:hidden;">
@@ -30,7 +30,7 @@
       <div style="width:34px;height:34px;border-radius:50%;background:rgba(139,92,246,.3);display:flex;align-items:center;justify-content:center;">
         <hero-icon-outline name="user" width="16" height="16" style="color:#a78bfa;"></hero-icon-outline>
       </div>
-      <div><div style="color:white;font-size:13px;font-weight:600;">John Doe</div><div style="color:rgba(255,255,255,.4);font-size:11px;">Admin</div></div>
+      <div><div style="color:white;font-size:13px;font-weight:600;">Karma Kioko</div><div style="color:rgba(255,255,255,.4);font-size:11px;">Admin</div></div>
     </div>
   </aside>
 
@@ -95,7 +95,7 @@
           <div class="dev-name" style="color:white;font-weight:700;font-size:12px;">Main Thermostat</div>
           <div style="color:rgba(255,255,255,.4);font-size:11px;margin-top:3px;">Living Room</div>
           <div style="display:flex;align-items:center;gap:5px;margin-top:7px;">
-            <button onclick="adjTemp(event,'thermo1',-1)" style="background:rgba(255,255,255,.1);border:none;color:white;width:20px;height:20px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">−</button>
+            <button onclick="adjTemp(event,'thermo1',-1)" style="background:rgba(255,255,255,.1);border:none;color:white;width:20px;height:20px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">-</button>
             <div class="temp-badge" id="temp-thermo1" style="margin-top:0;font-size:10px;">22°C</div>
             <button onclick="adjTemp(event,'thermo1',1)"  style="background:rgba(255,255,255,.1);border:none;color:white;width:20px;height:20px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">+</button>
           </div>
@@ -107,7 +107,7 @@
           <div class="dev-name" style="color:white;font-weight:700;font-size:12px;">Bedroom Thermostat</div>
           <div style="color:rgba(255,255,255,.4);font-size:11px;margin-top:3px;">Bedroom</div>
           <div style="display:flex;align-items:center;gap:5px;margin-top:7px;">
-            <button onclick="adjTemp(event,'thermo2',-1)" style="background:rgba(255,255,255,.1);border:none;color:white;width:20px;height:20px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">−</button>
+            <button onclick="adjTemp(event,'thermo2',-1)" style="background:rgba(255,255,255,.1);border:none;color:white;width:20px;height:20px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">-</button>
             <div class="temp-badge" id="temp-thermo2" style="margin-top:0;font-size:10px;">20°C</div>
             <button onclick="adjTemp(event,'thermo2',1)"  style="background:rgba(255,255,255,.1);border:none;color:white;width:20px;height:20px;border-radius:50%;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;">+</button>
           </div>
@@ -118,7 +118,7 @@
           <div class="di-wrap di-dark"><hero-icon-outline name="refresh" width="20" height="20" style="color:rgba(255,255,255,.2);"></hero-icon-outline></div>
           <div class="dev-name" style="color:rgba(255,255,255,.5);font-weight:700;font-size:12px;">Ceiling Fan</div>
           <div style="color:rgba(255,255,255,.25);font-size:11px;margin-top:3px;">Bedroom</div>
-          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4b5563;font-weight:600;">● OFF</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4b5563;font-weight:600;"> OFF</div>
         </div>
 
         <!-- Security -->
@@ -135,7 +135,7 @@
           <div class="di-wrap di-dark"><hero-icon-outline name="lock-open" width="20" height="20" style="color:rgba(255,255,255,.2);"></hero-icon-outline></div>
           <div class="dev-name" style="color:rgba(255,255,255,.5);font-weight:700;font-size:12px;">Back Door Lock</div>
           <div style="color:rgba(255,255,255,.25);font-size:11px;margin-top:3px;">Kitchen</div>
-          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#facc15;font-weight:600;">● UNLOCKED</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#facc15;font-weight:600;"> UNLOCKED</div>
         </div>
 
         <!-- Cameras -->
@@ -144,7 +144,7 @@
           <div class="di-wrap di-teal"><hero-icon-outline name="camera" width="20" height="20" style="color:#93c5fd;"></hero-icon-outline></div>
           <div class="dev-name" style="color:white;font-weight:700;font-size:12px;">Security Camera</div>
           <div style="color:rgba(255,255,255,.4);font-size:11px;margin-top:3px;">Front Yard</div>
-          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#818cf8;font-weight:600;">● RECORDING</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#818cf8;font-weight:600;"> RECORDING</div>
         </div>
 
         <!-- Other -->
@@ -153,7 +153,7 @@
           <div class="di-wrap di-dark"><hero-icon-outline name="desktop-computer" width="20" height="20" style="color:rgba(255,255,255,.2);"></hero-icon-outline></div>
           <div class="dev-name" style="color:rgba(255,255,255,.5);font-weight:700;font-size:12px;">Smart TV</div>
           <div style="color:rgba(255,255,255,.25);font-size:11px;margin-top:3px;">Living Room</div>
-          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4b5563;font-weight:600;">● OFF</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4b5563;font-weight:600;"> OFF</div>
         </div>
 
         <div class="device-card dc-purple" data-id="speaker" data-category="other" data-name="Smart Speaker" onclick="toggleDevice(this)">
@@ -161,7 +161,7 @@
           <div class="di-wrap di-purple"><hero-icon-outline name="microphone" width="20" height="20" style="color:#e879f9;"></hero-icon-outline></div>
           <div class="dev-name" style="color:white;font-weight:700;font-size:12px;">Smart Speaker</div>
           <div style="color:rgba(255,255,255,.4);font-size:11px;margin-top:3px;">Kitchen</div>
-          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4ade80;font-weight:600;">● ON</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4ade80;font-weight:600;"> ON</div>
         </div>
 
         <div class="device-card dc-dark off" data-id="coffee" data-category="other" data-name="Coffee Maker" onclick="toggleDevice(this)">
@@ -169,7 +169,7 @@
           <div class="di-wrap di-dark"><hero-icon-outline name="beaker" width="20" height="20" style="color:rgba(255,255,255,.2);"></hero-icon-outline></div>
           <div class="dev-name" style="color:rgba(255,255,255,.5);font-weight:700;font-size:12px;">Coffee Maker</div>
           <div style="color:rgba(255,255,255,.25);font-size:11px;margin-top:3px;">Kitchen</div>
-          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4b5563;font-weight:600;">● OFF</div>
+          <div class="dev-status" style="font-size:10px;margin-top:5px;color:#4b5563;font-weight:600;"> OFF</div>
         </div>
 
       </div>
@@ -193,7 +193,7 @@
   </nav>
 </div>
 
-  <script src="devices.js" defer></script>
+  <script src="js/devices.js" defer></script>
 <script src="/socket.io/socket.io.js"></script>
 </body>
 </html>
