@@ -107,3 +107,12 @@ function applyFilters() {
 
   document.getElementById('empty-state').classList.toggle('show', visibleCount === 0);
 }
+
+// clear search input
+function clearSearch() {
+  document.getElementById('search-input').value = '';
+  applyFilters();
+}
+
+// Init
+document.addEventListener('DOMContentLoaded', updateCount);
