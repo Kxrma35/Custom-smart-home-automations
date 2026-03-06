@@ -52,3 +52,30 @@ function toggleDevice(card) {
   }
   updateCount();
 }
+
+// ── Toggle lock card ──────────────────────────────────────
+function toggleLockCard(card, name) {
+  const id = card.dataset.id;
+  lockState[id] = !lockState[id];
+  const locked = lockState[id];
+  const dot = document.getElementById('dot-' + id);
+  const st  = card.querySelector('.dev-status');
+
+  if (locked) {
+    dot.className = 'dot dot-on';
+    if (st) { st.style.color = '#4ade80'; st.textContent = '● LOCKED'; }
+    showToast(`${name} LOCKED `);
+  } else {
+    dot.className = 'dot dot-yellow';
+    if (st) { st.style.color = '#facc15'; st.textContent = '● UNLOCKED'; }
+    showToast(`${name} UNLOCKED `);
+  }
+}
+
+// ── Adjust thermostat temperature ─────────────────────────
+function adjTemp(e, id, delta) {
+  e.stopPropagation();
+  temps[id] = Math.min(30, Math.max(10, temps[id] + delta));
+  document.getElementById('temp-' + id).textContent = temps[id] + '°C';
+  showToast(`Thermostat set to ${temps[id]}°C`);
+}
