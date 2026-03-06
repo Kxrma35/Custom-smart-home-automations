@@ -10,3 +10,13 @@ const deviceOn = {
 const lockState = { lock1: true, lock2: false };
 const temps     = { thermo1: 22, thermo2: 20 };
 let activeFilter = 'all';
+
+// Toast 
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+}
