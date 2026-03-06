@@ -53,7 +53,7 @@ function toggleDevice(card) {
   updateCount();
 }
 
-// ── Toggle lock card ──────────────────────────────────────
+// Toggle lock card 
 function toggleLockCard(card, name) {
   const id = card.dataset.id;
   lockState[id] = !lockState[id];
@@ -72,10 +72,38 @@ function toggleLockCard(card, name) {
   }
 }
 
-// ── Adjust thermostat temperature ─────────────────────────
+// Adjust thermostat temperature
 function adjTemp(e, id, delta) {
   e.stopPropagation();
   temps[id] = Math.min(30, Math.max(10, temps[id] + delta));
   document.getElementById('temp-' + id).textContent = temps[id] + '°C';
   showToast(`Thermostat set to ${temps[id]}°C`);
+}
+
+// Set active filter pill
+ function setFilter(pill) {
+  document.querySelectorAll('.fpill').forEach(p => p.classList.remove('active'));
+  pill.classList.add('active');
+  activeFilter = pill.dataset.filter;
+  applyFilters();
+}
+
+// Apply search and filter
+function applyFilters() {
+  const query    = document.getElementById('search-input').value.toLowerCase().trim();
+  const clearBtn = document.getElementById('clear-search');
+  clearBtn.style.display = query ? 'block' : 'none';
+
+  let visibleCount = 0;
+  document.querySelectorAll('.device-card').forEach(card => {
+    const cat   = card.dataset.category;
+    const name  = card.dataset.name.toLowerCase();
+    const matchFilter = activeFilter === 'all' || cat === activeFilter;
+    const matchSearch = !query || name.includes(query);
+    const show = matchFilter && matchSearch;
+    card.classList.toggle('hidden', !show);
+    if (show) visibleCount++;
+  });
+
+  document.getElementById('empty-state').classList.toggle('show', visibleCount === 0);
 }
