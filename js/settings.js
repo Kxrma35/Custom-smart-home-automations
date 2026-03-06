@@ -57,3 +57,39 @@ function saveNetwork() {
   closeModal('modal-network');
   showToast(`✓ Connected to "${ssid}"`);
 }
+
+// Language picker 
+function selectLang(el, lang) {
+  document.querySelectorAll('.lang-option').forEach(o => {
+    o.classList.remove('selected');
+    const chk = o.querySelector('hero-icon-outline');
+    if (chk) chk.remove();
+  });
+
+  el.classList.add('selected');
+  const chk = document.createElement('hero-icon-outline');
+  chk.setAttribute('name', 'check');
+  chk.setAttribute('width', '16');
+  chk.setAttribute('height', '16');
+  chk.style.color = '#a78bfa';
+  el.appendChild(chk);
+
+  document.getElementById('display-language').textContent = lang;
+  showToast(`✓ Language set to ${lang}`);
+}
+
+// Sign out
+function doLogout() {
+  closeModal('modal-logout');
+  showToast('👋 Signing out…');
+  setTimeout(() => showToast('Redirecting to login…'), 1500);
+}
+
+//  Init
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) overlay.classList.remove('open');
+    });
+  });
+});
