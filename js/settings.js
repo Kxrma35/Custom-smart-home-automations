@@ -81,7 +81,7 @@ function selectLang(el, lang) {
 // Sign out
 function doLogout() {
   closeModal('modal-logout');
-  showToast('👋 Signing out…');
+  showToast(' Signing out…');
   setTimeout(() => showToast('Redirecting to login…'), 1500);
 }
 
