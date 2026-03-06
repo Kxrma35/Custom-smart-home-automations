@@ -20,3 +20,35 @@ function showToast(msg) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
 }
+
+// Update active count in header
+function updateCount() {
+  const on = Object.values(deviceOn).filter(Boolean).length;
+  document.getElementById('active-count').textContent = on;
+}
+
+// Toggle generic device card 
+function toggleDevice(card) {
+  const id   = card.dataset.id;
+  const name = card.dataset.name;
+  deviceOn[id] = !deviceOn[id];
+  const on  = deviceOn[id];
+  const dot = document.getElementById('dot-' + id);
+  const st  = card.querySelector('.dev-status');
+  const nm  = card.querySelector('.dev-name');
+
+   if (on) {
+    card.classList.remove('off');
+    dot.className = 'dot dot-on';
+    if (st) { st.style.color = '#4ade80'; st.textContent = '● ON'; }
+    if (nm) nm.style.color = 'white';
+    showToast(`${name} turned ON ✓`);
+  } else {
+    card.classList.add('off');
+    dot.className = 'dot dot-off';
+    if (st) { st.style.color = '#4b5563'; st.textContent = '● OFF'; }
+    if (nm) nm.style.color = 'rgba(255,255,255,.5)';
+    showToast(`${name} turned OFF`);
+  }
+  updateCount();
+}
