@@ -210,6 +210,41 @@
         </div>
       </div>
 
+       <!-- Pi System Stats -->
+      <div>
+        <div class="section-lbl">Pi System Monitor</div>
+        <div class="settings-group">
+          <div class="srow" style="cursor:default;">
+            <div class="sicon"></div>
+            <span style="color:white;font-weight:600;font-size:14px;flex:1;">CPU Temperature</span>
+            <span id="pi-temp" style="color:#4ade80;font-size:14px;font-weight:700;">--°C</span>
+          </div>
+          <div class="srow" style="flex-direction:column;align-items:stretch;cursor:default;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+              <span style="color:white;font-weight:600;font-size:14px;">CPU Usage</span>
+              <span id="pi-cpu-pct" style="color:rgba(255,255,255,.5);font-size:13px;">--%</span>
+            </div>
+            <div style="height:5px;background:rgba(255,255,255,.08);border-radius:3px;">
+              <div id="pi-cpu-bar" style="height:100%;width:0%;background:#a78bfa;border-radius:3px;transition:width .8s;"></div>
+            </div>
+          </div>
+          <div class="srow" style="flex-direction:column;align-items:stretch;cursor:default;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+              <span style="color:white;font-weight:600;font-size:14px;">RAM Usage</span>
+              <span id="pi-ram-text" style="color:rgba(255,255,255,.5);font-size:13px;">-- MB</span>
+            </div>
+            <div style="height:5px;background:rgba(255,255,255,.08);border-radius:3px;">
+              <div id="pi-ram-bar" style="height:100%;width:0%;background:#60a5fa;border-radius:3px;transition:width .8s;"></div>
+            </div>
+          </div>
+          <div class="srow" style="cursor:default;">
+            <div class="sicon"></div>
+            <span style="color:white;font-weight:600;font-size:14px;flex:1;">Uptime</span>
+            <span id="pi-uptime" style="color:rgba(255,255,255,.5);font-size:13px;">--</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Support -->
       <div>
         <div class="section-lbl">Support</div>
@@ -228,7 +263,7 @@
         </div>
       </div>
 
-      <!-- Danger Zone -->
+      <!-- Danger Zone (I call it the dangerzone because the main point of the website is for people to use them and if someone signs out then we're losing business)-->
       <div>
         <div class="section-lbl">Danger Zone</div>
         <div style="display:flex;flex-direction:column;gap:10px;">
@@ -256,7 +291,8 @@
   </nav>
 </div>
 
-  <script src="settings.js" defer></script>
   <script src="/socket.io/socket.io.js"></script>
+  <script src="main.js"></script>
+  <script src="settings.js" defer></script>
 </body>
 </html>
