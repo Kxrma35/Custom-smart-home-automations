@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/hero-icon-js/hero-icon-outline.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="home.css">
 </head>
 <body style="display:flex;flex-direction:column;height:100%;overflow:hidden;">
 <div id="toast"></div>
@@ -70,10 +70,10 @@
     <div style="width:28px;height:28px;border-radius:50%;background:rgba(147,197,253,.15);display:flex;align-items:center;justify-content:center;">
       <hero-icon-outline name="chip" width="14" height="14" style="color:#93c5fd;"></hero-icon-outline>
     </div>
-    <span style="color:rgba(255,255,255,.8);font-size:13px;font-weight:500;">Pi Temp</span>
-  </div>
-  <div style="color:white;font-size:32px;font-weight:800;line-height:1;">
-    <span id="pi-temp">--.-</span><span style="color:rgba(255,255,255,.6);font-size:18px;font-weight:600;margin-left:4px;">°C</span>
+   <div class="temp-card">
+    <h3>CPU Temperature</h3>
+    <p><span id="pi-temp">--</span>°C</p>
+</div>
   </div>
 </div>
         </div>
@@ -180,8 +180,8 @@
 
 </div>
 
-  <script src="js/home.js" defer></script>
-  <script src="/socket.io/socket.io.js"></script>
+  <script src="home.js" defer></script>
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 
 <script src="main.js"></script>
 </body>

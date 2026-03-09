@@ -143,6 +143,11 @@ const socket = io();
     lightButton.style.backgroundColor = isOn ? "#10b981" : "#ef4444"; // Tailwind green/red
   });
 
+  const Socket = io();
+
+socket.on('cpu_temp', (data) => {
+    document.getElementById('pi-temp').innerText = data.temperature;
+});
 
 // Init 
 document.addEventListener('DOMContentLoaded', updateStats);
