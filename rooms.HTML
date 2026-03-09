@@ -97,6 +97,32 @@
       </div>
 
 
+    <!-- Motion + Temp sensors -->
+      <div style="display:flex;gap:12px;margin-bottom:14px;">
+        <div style="flex:1;background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:14px;">
+          <div style="color:rgba(255,255,255,.4);font-size:11px;margin-bottom:6px;">HALLWAY MOTION</div>
+          <div id="motion-status" style="font-size:13px;font-weight:600;color:#4b5563;">● CLEAR</div>
+        </div>
+        <div style="flex:1;background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:14px;">
+          <div style="color:rgba(255,255,255,.4);font-size:11px;margin-bottom:6px;">ROOM TEMP</div>
+          <div style="display:flex;align-items:baseline;gap:3px;">
+            <span id="room-temp" style="font-size:18px;font-weight:800;color:#fb923c;">21.5</span>
+            <span style="font-size:12px;color:rgba(255,255,255,.3);">°C</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-section" style="cursor:pointer;margin-bottom:8px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;">
+          <div style="display:flex;align-items:center;gap:12px;"><div class="room-icon-box" style="background:#1a1030;"><svg width="26" height="26" fill="none" stroke="#a78bfa" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2"/></svg></div><div><div style="color:white;font-weight:600;font-size:15px;">Front Yard</div><div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:2px;">1 of 1 active</div></div></div>
+          <svg width="18" height="18" fill="none" stroke="rgba(255,255,255,.4)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
   <!-- BOTTOM NAV FOR MOBILE DEVICES -->
   <nav class="bottom-nav" style="background:#12142a;border-top:1px solid rgba(255,255,255,.08);flex-shrink:0;justify-content:space-around;align-items:center;padding:8px 4px 14px;">
     <a href="home.html"     class="mnav-btn"><div class="mnav-pill"><svg width="24" height="24" fill="none" stroke="rgba(255,255,255,.45)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 21V12h6v9"/></svg></div><span class="mnav-label" style="color:rgba(255,255,255,.45);">Home</span></a>
@@ -107,9 +133,8 @@
 
 </div>
 
-<script src="rooms.js" defer></script>
 <script src="/socket.io/socket.io.js"></script>
-
 <script src="main.js"></script>
+<script src="rooms.js" defer></script>
 </body>
 </html>
