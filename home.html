@@ -69,7 +69,7 @@
           <div style="color:white;font-size:32px;font-weight:800;line-height:1;"><span id="energy-val">2.4</span><span style="color:rgba(255,255,255,.6);font-size:18px;font-weight:600;margin-left:4px;">kW</span></div>
         </div>
 
-        <!-- Pi CPU Temp -->
+        <!-- Pi System stats-->
         <div class="stat-card" style="padding:16px;">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
             <div style="width:28px;height:28px;border-radius:50%;background:rgba(74,222,128,.15);display:flex;align-items:center;justify-content:center;">
@@ -85,7 +85,47 @@
 
       </div>
     </div>
-    
+
+  <!-- CPU Temp -->
+          <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:10px;">
+            <span id="pi-temp" style="color:#4ade80;font-size:28px;font-weight:800;">--</span>
+            <span style="color:rgba(255,255,255,.4);font-size:14px;font-weight:600;">°C</span>
+            <span style="color:rgba(255,255,255,.25);font-size:11px;margin-left:4px;">CPU Temp</span>
+          </div>
+
+   <!-- CPU % -->
+          <div style="margin-bottom:7px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:3px;">
+              <span style="color:rgba(255,255,255,.4);font-size:10px;">CPU</span>
+              <span id="pi-cpu-pct" style="color:rgba(255,255,255,.5);font-size:10px;">--%</span>
+            </div>
+            <div style="height:3px;background:rgba(255,255,255,.08);border-radius:2px;">
+              <div id="pi-cpu-bar" style="height:100%;width:0%;background:#a78bfa;border-radius:2px;transition:width .8s ease;"></div>
+            </div>
+          </div>
+
+     <!-- RAM -->
+          <div style="margin-bottom:7px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:3px;">
+              <span style="color:rgba(255,255,255,.4);font-size:10px;">RAM</span>
+              <span id="pi-ram-text" style="color:rgba(255,255,255,.5);font-size:10px;">-- MB</span>
+            </div>
+            <div style="height:3px;background:rgba(255,255,255,.08);border-radius:2px;">
+              <div id="pi-ram-bar" style="height:100%;width:0%;background:#60a5fa;border-radius:2px;transition:width .8s ease;"></div>
+            </div>
+          </div>     
+
+        <!-- Uptime -->
+          <div style="display:flex;justify-content:space-between;">
+            <span style="color:rgba(255,255,255,.4);font-size:10px;">Uptime</span>
+            <span id="pi-uptime" style="color:rgba(255,255,255,.5);font-size:10px;">--</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
     <!-- Body -->
     <div class="no-scroll" style="flex:1;padding:22px 24px;background:#0f1021;">
 
