@@ -152,6 +152,36 @@
         </div>
       </div>
 
+
+    <!-- Energy Graph -->
+      <div style="background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:20px;padding:20px;margin-bottom:26px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+          <h2 style="color:white;font-weight:700;font-size:15px;margin:0;">Energy Usage</h2>
+          <div style="display:flex;align-items:baseline;gap:4px;">
+            <span id="energy-val" style="color:#a78bfa;font-size:22px;font-weight:800;">2.4</span>
+            <span style="color:rgba(255,255,255,.4);font-size:13px;">kW live</span>
+          </div>
+        </div>
+        <div style="height:110px;position:relative;">
+          <canvas id="energy-chart"></canvas>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:8px;">
+          <span style="color:rgba(255,255,255,.2);font-size:10px;">5 min ago</span>
+          <span style="color:rgba(255,255,255,.2);font-size:10px;">now</span>
+        </div>
+      </div>
+      
+    <!-- Automation Log -->
+      <div style="background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:20px;padding:20px;margin-bottom:26px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+          <h2 style="color:white;font-weight:700;font-size:15px;margin:0;">Automation Log</h2>
+          <span style="color:rgba(255,255,255,.25);font-size:11px;">live</span>
+        </div>
+        <div id="automation-log" style="max-height:180px;overflow-y:auto;padding-right:4px;">
+          <div style="color:rgba(255,255,255,.2);font-size:12px;padding:12px 0;">Waiting for events…</div>
+        </div>
+      </div>
+
       <!-- Favorite Devices/Frequently used devices -->
       <h2 style="color:white;font-weight:700;font-size:15px;margin:0 0 14px;">Favorite Devices</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:13px;padding-bottom:20px;">
