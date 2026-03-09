@@ -121,7 +121,7 @@ socket.on('temp-update', (data) => {
     const tempEl = document.getElementById('pi-temp');
     if (tempEl) {
         tempEl.innerText = `CPU: ${data.celsius}°C`;
-        // Optional: Change color if getting too hot
+        // Change color if getting too hot
         tempEl.style.color = data.celsius > 70 ? '#ef4444' : '#4ade80';
     }
 });

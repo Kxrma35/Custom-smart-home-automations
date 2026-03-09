@@ -128,5 +128,21 @@ function setMode(mode) {
   showToast(`${cfg.label} mode activated`);
 }
 
+const socket = io();
+  const lightButton = document.getElementById('light-switch'); // Ensure your button has this ID
+  const statusText = document.getElementById('status-indicator');
+
+  // 1. Send command to Pi when button is clicked
+  lightButton.addEventListener('click', () => {
+    socket.emit('toggle-relay');
+  });
+
+  // 2. Update UI when the Pi confirms the state changed
+  socket.on('status-update', (isOn) => {
+    statusText.innerText = isOn ? "ON" : "OFF";
+    lightButton.style.backgroundColor = isOn ? "#10b981" : "#ef4444"; // Tailwind green/red
+  });
+
+
 // Init 
 document.addEventListener('DOMContentLoaded', updateStats);
