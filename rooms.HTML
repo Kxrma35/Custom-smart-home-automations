@@ -10,12 +10,15 @@
   
 </head>
 <body style="display:flex;flex-direction:column;height:100%;overflow:hidden;">
-<div class="app-shell" style="display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden;">
+<div id="toast"></div>
+<div class="app-shell" style="flex:1;min-height:0;">
 
   <!-- SIDEBAR -->
-  <aside class="sidebar" style="width:240px;min-width:240px;background:#0d0f24;border-right:1px solid rgba(255,255,255,.07);flex-direction:column;padding:24px 16px;gap:4px;overflow:hidden;">
+  <aside class="sidebar" style="width:240px;min-width:240px;background:#0d0f24;border-right:1px solid rgba(255,255,255,.07);padding:24px 16px;gap:4px;overflow:hidden;">
     <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;margin-bottom:20px;">
-      <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#a855f7);display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 21V12h6v9"/></svg></div>
+      <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#7c3aed,#a855f7);display:flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 21V12h6v9"/></svg>
+      </div>
       <span style="color:white;font-weight:700;font-size:16px;">Smart Home</span>
     </div>
     <a href="home.html"     class="sidebar-link"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 21V12h6v9"/></svg>Home</a>
@@ -23,73 +26,55 @@
     <a href="devices.html"  class="sidebar-link"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>Devices</a>
     <a href="settings.html" class="sidebar-link"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke-width="2"/></svg>Settings</a>
     <div style="margin-top:auto;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);">
-      <div style="width:34px;height:34px;border-radius:50%;background:rgba(139,92,246,.3);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" fill="none" stroke="#a78bfa" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></div>
-      <div><div style="color:white;font-size:13px;font-weight:600;">Karma Kioko</div><div style="color:rgba(255,255,255,.4);font-size:11px;">Admin</div></div>
+      <div style="width:34px;height:34px;border-radius:50%;background:rgba(139,92,246,.3);display:flex;align-items:center;justify-content:center;">
+        <svg width="16" height="16" fill="none" stroke="#a78bfa" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+      </div>
+      <div>
+        <div style="color:white;font-size:13px;font-weight:600;">Karma Kioko</div>
+        <div style="color:rgba(255,255,255,.4);font-size:11px;">Admin</div>
+      </div>
     </div>
   </aside>
 
   <!-- MAIN -->
-  <div style="flex:1;display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;">
-    <div class="hero-gradient" style="padding:32px 24px 28px;flex-shrink:0;">
-      <h1 style="color:white;font-size:clamp(22px,4vw,32px);font-weight:800;margin:0 0 4px;">Rooms</h1>
+  <div style="flex:1;display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;background:#0f1021;">
+
+    <!-- Hero -->
+    <div class="hero-gradient" style="padding:28px 24px 24px;flex-shrink:0;">
+      <h1 style="color:white;font-size:clamp(22px,4vw,30px);font-weight:800;margin:0 0 4px;">Rooms</h1>
       <p style="color:rgba(255,255,255,.7);font-size:14px;margin:0;">Manage devices by room</p>
     </div>
 
-    <div class="no-scroll" style="flex:1;padding:20px 24px;background:#0f1021;display:flex;flex-direction:column;gap:14px;">
+    <!-- Scrollable body -->
+    <div class="no-scroll" style="flex:1;padding:20px 24px;display:flex;flex-direction:column;gap:14px;">
 
-      <!-- Living Room Expanded version to show devices -->
-      <div class="room-section">
-        <div class="room-header">
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div class="room-icon-box" style="background:#1e1860;"><svg width="26" height="26" fill="none" stroke="#a5b4fc" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12H4M4 12V8a2 2 0 012-2h12a2 2 0 012 2v4M4 12v6h16v-6"/></svg></div>
-            <div><div style="color:white;font-weight:600;font-size:15px;">Living Room</div><div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:2px;">2 of 3 active</div></div>
+      <!-- SENSOR STATUS ROW -->
+      <div style="display:flex;gap:12px;">
+        <div style="flex:1;background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:14px;">
+          <div style="color:rgba(255,255,255,.35);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">Hallway Motion</div>
+          <div id="motion-status" style="font-size:13px;font-weight:600;color:#4b5563;"> CLEAR</div>
+        </div>
+        <div style="flex:1;background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:14px;">
+          <div style="color:rgba(255,255,255,.35);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">Room Temp</div>
+          <div style="display:flex;align-items:baseline;gap:3px;">
+            <span id="room-temp" style="font-size:20px;font-weight:800;color:#fb923c;">21.5</span>
+            <span style="font-size:12px;color:rgba(255,255,255,.3);">°C</span>
           </div>
-          <svg class="room-chevron" width="18" height="18" fill="none" stroke="rgba(255,255,255,.4)" viewBox="0 0 24 24" style="transition:color .15s;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </div>
-        <div style="padding:0 16px 16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;">
-          <div class="device-card dc-warm"><div class="dot-blue" style="width:11px;height:11px;border-radius:50%;position:absolute;top:12px;right:12px;"></div><div class="di-warm" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="20" height="20" fill="none" stroke="#fcd34d" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m1.343-5.657l-.707-.707M12 21a9 9 0 01-6.364-15.364A9 9 0 0112 3a9 9 0 016.364 15.364A9 9 0 0112 21z"/></svg></div><div style="color:white;font-weight:700;font-size:12px;">Living Room Light</div><div style="color:rgba(255,255,255,.4);font-size:11px;margin-top:2px;">Living Room</div></div>
-          <div class="device-card dc-red"><div class="dot-blue" style="width:11px;height:11px;border-radius:50%;position:absolute;top:12px;right:12px;"></div><div class="di-red" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><svg width="20" height="20" fill="none" stroke="#fb923c" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9"/></svg></div><div style="color:white;font-weight:700;font-size:12px;">Main Thermostat</div><div style="color:rgba(255,255,255,.4);font-size:11px;margin-top:2px;">Living Room</div><div class="temp-badge" style="margin-top:6px;font-size:11px;">22°C</div></div>
-          <div class="device-card dc-dark"><div class="dot-gray" style="width:11px;height:11px;border-radius:50%;position:absolute;top:12px;right:12px;"></div><div class="di-dark" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><svg width="20" height="20" fill="none" stroke="rgba(255,255,255,.3)" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="13" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M8 7l4-4 4 4"/></svg></div><div style="color:rgba(255,255,255,.5);font-weight:700;font-size:12px;">Smart TV</div><div style="color:rgba(255,255,255,.25);font-size:11px;margin-top:2px;">Living Room</div></div>
-        </div>
-      </div>
-
-      <!-- Collapsed rooms -->
-      <div class="room-section" style="cursor:pointer;" onclick="this.querySelector('.chev').style.transform='rotate(90deg)'">
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;">
-          <div style="display:flex;align-items:center;gap:12px;"><div class="room-icon-box" style="background:#12104a;"><svg width="26" height="26" fill="none" stroke="#c4b5fd" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12h18M3 12V8a2 2 0 012-2h4a2 2 0 012 2v4M13 12V8a2 2 0 012-2h4a2 2 0 012 2v4M3 12v6h18v-6"/></svg></div><div><div style="color:white;font-weight:600;font-size:15px;">Bedroom</div><div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:2px;">1 of 3 active</div></div></div>
-          <svg class="chev" width="18" height="18" fill="none" stroke="rgba(255,255,255,.4)" viewBox="0 0 24 24" style="transition:transform .2s;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        <div style="flex:1;background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:14px;">
+          <div style="color:rgba(255,255,255,.35);font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;">Pi CPU Temp</div>
+          <div style="display:flex;align-items:baseline;gap:3px;">
+            <span id="pi-temp" style="font-size:20px;font-weight:800;color:#4ade80;">--</span>
+            <span style="font-size:12px;color:rgba(255,255,255,.3);">°C</span>
+          </div>
         </div>
       </div>
 
-      <div class="room-section" style="cursor:pointer;">
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;">
-          <div style="display:flex;align-items:center;gap:12px;"><div class="room-icon-box" style="background:#1a0e3a;"><svg width="26" height="26" fill="none" stroke="#e879f9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3"/></svg></div><div><div style="color:white;font-weight:600;font-size:15px;">Kitchen</div><div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:2px;">2 of 4 active</div></div></div>
-          <svg width="18" height="18" fill="none" stroke="rgba(255,255,255,.4)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </div>
-      </div>
-
-      <div class="room-section" style="cursor:pointer;">
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;">
-          <div style="display:flex;align-items:center;gap:12px;"><div class="room-icon-box" style="background:#1a1030;"><svg width="26" height="26" fill="none" stroke="#a78bfa" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div><div><div style="color:white;font-weight:600;font-size:15px;">Entrance</div><div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:2px;">1 of 1 active</div></div></div>
-          <svg width="18" height="18" fill="none" stroke="rgba(255,255,255,.4)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </div>
-      </div>
-
-      <div class="room-section" style="cursor:pointer;margin-bottom:8px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;">
-          <div style="display:flex;align-items:center;gap:12px;"><div class="room-icon-box" style="background:#1a1030;"><svg width="26" height="26" fill="none" stroke="#a78bfa" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2"/></svg></div><div><div style="color:white;font-weight:600;font-size:15px;">Front Yard</div><div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:2px;">1 of 1 active</div></div></div>
-          <svg width="18" height="18" fill="none" stroke="rgba(255,255,255,.4)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-   <!-- Camera Motion Detection -->
-      <div style="background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:20px;padding:20px;margin-bottom:26px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+      <!-- CAMERA MOTION WIDGET -->
+      <div style="background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:18px;padding:18px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
           <div style="display:flex;align-items:center;gap:10px;">
-            <div style="width:32px;height:32px;border-radius:10px;background:rgba(96,165,250,.15);display:flex;align-items:center;justify-content:center;font-size:16px;"></div>
+            <div style="width:32px;height:32px;border-radius:10px;background:rgba(96,165,250,.15);display:flex;align-items:center;justify-content:center;font-size:16px;">📷</div>
             <div>
               <div style="color:white;font-weight:700;font-size:14px;">Hallway Camera Motion</div>
               <div style="display:flex;align-items:center;gap:6px;margin-top:2px;">
@@ -103,71 +88,145 @@
             Start Camera
           </button>
         </div>
-
         <!-- Motion level bar -->
-        <div style="margin-bottom:12px;">
+        <div style="margin-bottom:10px;">
           <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
-            <span style="color:rgba(255,255,255,.35);font-size:11px;text-transform:uppercase;letter-spacing:.06em;">Motion Level</span>
-            <span id="motion-level-pct" style="color:rgba(255,255,255,.35);font-size:11px;">0%</span>
+            <span style="color:rgba(255,255,255,.3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;">Motion Level</span>
+            <span id="motion-level-pct" style="color:rgba(255,255,255,.3);font-size:11px;">0%</span>
           </div>
           <div style="height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;">
             <div id="motion-level-bar" style="height:100%;width:0%;background:#4ade80;border-radius:3px;transition:width .15s ease;"></div>
           </div>
         </div>
-
-        <!-- Motion flash indicator -->
-        <div id="cam-motion-indicator" style="border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px;opacity:0;transition:all .3s;">
-          <span style="font-size:18px;"></span>
-          <span style="color:#f87171;font-size:13px;font-weight:600;">Motion detected!</span>
+        <!-- Flash indicator -->
+        <div id="cam-motion-indicator" style="border-radius:10px;padding:8px 12px;display:flex;align-items:center;gap:8px;opacity:0;transition:all .3s;">
+          <span style="font-size:16px;"></span>
+          <span style="color:#f87171;font-size:12px;font-weight:600;">Motion detected!</span>
         </div>
-
-        <!-- Sensitivity controls -->
-        <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+        <!-- Sensitivity -->
+        <div style="display:flex;align-items:center;gap:8px;margin-top:10px;">
           <span style="color:rgba(255,255,255,.25);font-size:11px;">Sensitivity:</span>
           <button onclick="CameraMotion.setSensitivity('low')"    style="padding:4px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);color:rgba(255,255,255,.4);font-size:11px;cursor:pointer;">Low</button>
           <button onclick="CameraMotion.setSensitivity('medium')" style="padding:4px 10px;border-radius:8px;border:1px solid rgba(139,92,246,.3);background:rgba(139,92,246,.1);color:#a78bfa;font-size:11px;cursor:pointer;">Medium</button>
           <button onclick="CameraMotion.setSensitivity('high')"   style="padding:4px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);color:rgba(255,255,255,.4);font-size:11px;cursor:pointer;">High</button>
-          <span id="sensitivity-label" style="color:rgba(255,255,255,.25);font-size:11px;margin-left:4px;">Medium</span>
+          <span id="sensitivity-label" style="color:rgba(255,255,255,.25);font-size:11px;margin-left:2px;">Medium</span>
         </div>
       </div>
 
-   <!-- Automation Log -->
-      <div style="background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:20px;padding:18px;margin-bottom:14px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
-          <h2 style="color:white;font-weight:700;font-size:14px;margin:0;">Automation Log</h2>
-          <span style="font-size:10px;color:rgba(255,255,255,.25);">live</span>
-        </div>
-        <div id="automation-log" style="max-height:140px;overflow-y:auto;">
-          <div style="color:rgba(255,255,255,.2);font-size:12px;padding:8px 0;">Waiting for events…</div>
-        </div>
-      </div>
+      <!-- ROOMS LIST -->
+      <h2 style="color:rgba(255,255,255,.4);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:4px 0 0;">Rooms</h2>
 
-
-    <!-- Motion + Temp sensors -->
-      <div style="display:flex;gap:12px;margin-bottom:14px;">
-        <div style="flex:1;background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:14px;">
-          <div style="color:rgba(255,255,255,.4);font-size:11px;margin-bottom:6px;">HALLWAY MOTION</div>
-          <div id="motion-status" style="font-size:13px;font-weight:600;color:#4b5563;">● CLEAR</div>
+      <!-- Living Room -->
+      <div class="room-section">
+        <div class="room-header">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="room-icon-box" style="background:#1e1860;"><svg width="26" height="26" fill="none" stroke="#a5b4fc" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12H4M4 12V8a2 2 0 012-2h12a2 2 0 012 2v4M4 12v6h16v-6"/></svg></div>
+            <div>
+              <div style="color:white;font-weight:600;font-size:15px;">Living Room</div>
+              <div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:2px;">2 of 3 active</div>
+            </div>
+          </div>
+          <svg width="18" height="18" fill="none" stroke="rgba(255,255,255,.4)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </div>
-        <div style="flex:1;background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:14px;">
-          <div style="color:rgba(255,255,255,.4);font-size:11px;margin-bottom:6px;">ROOM TEMP</div>
-          <div style="display:flex;align-items:baseline;gap:3px;">
-            <span id="room-temp" style="font-size:18px;font-weight:800;color:#fb923c;">21.5</span>
-            <span style="font-size:12px;color:rgba(255,255,255,.3);">°C</span>
+        <div style="padding:0 16px 16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;">
+          <div class="device-card dc-warm">
+            <div style="width:11px;height:11px;border-radius:50%;position:absolute;top:12px;right:12px;background:#60a5fa;box-shadow:0 0 6px #60a5fa;"></div>
+            <div class="di-warm" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+              <svg width="20" height="20" fill="none" stroke="#fcd34d" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m1.343-5.657l-.707-.707M12 21a9 9 0 01-6.364-15.364A9 9 0 0112 3a9 9 0 016.364 15.364A9 9 0 0112 21z"/></svg>
+            </div>
+            <div style="color:white;font-weight:700;font-size:12px;">Living Room Light</div>
+            <div style="color:rgba(255,255,255,.4);font-size:11px;margin-top:2px;">Living Room</div>
+          </div>
+          <div class="device-card dc-red">
+            <div style="width:11px;height:11px;border-radius:50%;position:absolute;top:12px;right:12px;background:#60a5fa;box-shadow:0 0 6px #60a5fa;"></div>
+            <div class="di-red" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;">
+              <svg width="20" height="20" fill="none" stroke="#fb923c" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9"/></svg>
+            </div>
+            <div style="color:white;font-weight:700;font-size:12px;">Main Thermostat</div>
+            <div style="color:rgba(255,255,255,.4);font-size:11px;margin-top:2px;">Living Room</div>
+            <div class="temp-badge" style="margin-top:6px;">22°C</div>
+          </div>
+          <div class="device-card dc-dark">
+            <div style="width:11px;height:11px;border-radius:50%;position:absolute;top:12px;right:12px;background:#374151;"></div>
+            <div class="di-dark" style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+              <svg width="20" height="20" fill="none" stroke="rgba(255,255,255,.3)" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="13" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M8 7l4-4 4 4"/></svg>
+            </div>
+            <div style="color:rgba(255,255,255,.5);font-weight:700;font-size:12px;">Smart TV</div>
+            <div style="color:rgba(255,255,255,.25);font-size:11px;margin-top:2px;">Living Room</div>
           </div>
         </div>
       </div>
 
-      <div class="room-section" style="cursor:pointer;margin-bottom:8px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;">
-          <div style="display:flex;align-items:center;gap:12px;"><div class="room-icon-box" style="background:#1a1030;"><svg width="26" height="26" fill="none" stroke="#a78bfa" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2"/></svg></div><div><div style="color:white;font-weight:600;font-size:15px;">Front Yard</div><div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:2px;">1 of 1 active</div></div></div>
-          <svg width="18" height="18" fill="none" stroke="rgba(255,255,255,.4)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      <!-- Bedroom -->
+      <div class="room-section">
+        <div class="room-header" onclick="toggleRoom(this)">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="room-icon-box" style="background:#12104a;"><svg width="26" height="26" fill="none" stroke="#c4b5fd" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12h18M3 12V8a2 2 0 012-2h4a2 2 0 012 2v4M13 12V8a2 2 0 012-2h4a2 2 0 012 2v4M3 12v6h18v-6"/></svg></div>
+            <div>
+              <div style="color:white;font-weight:600;font-size:15px;">Bedroom</div>
+              <div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:2px;">1 of 3 active</div>
+            </div>
+          </div>
+          <svg class="chev" width="18" height="18" fill="none" stroke="rgba(255,255,255,.4)" viewBox="0 0 24 24" style="transition:transform .2s;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+
+      <!-- Kitchen -->
+      <div class="room-section">
+        <div class="room-header" onclick="toggleRoom(this)">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="room-icon-box" style="background:#1a0e3a;"><svg width="26" height="26" fill="none" stroke="#e879f9" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3"/></svg></div>
+            <div>
+              <div style="color:white;font-weight:600;font-size:15px;">Kitchen</div>
+              <div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:2px;">2 of 4 active</div>
+            </div>
+          </div>
+          <svg class="chev" width="18" height="18" fill="none" stroke="rgba(255,255,255,.4)" viewBox="0 0 24 24" style="transition:transform .2s;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+
+      <!-- Entrance -->
+      <div class="room-section">
+        <div class="room-header" onclick="toggleRoom(this)">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="room-icon-box" style="background:#1a1030;"><svg width="26" height="26" fill="none" stroke="#a78bfa" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div>
+            <div>
+              <div style="color:white;font-weight:600;font-size:15px;">Entrance</div>
+              <div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:2px;">1 of 1 active</div>
+            </div>
+          </div>
+          <svg class="chev" width="18" height="18" fill="none" stroke="rgba(255,255,255,.4)" viewBox="0 0 24 24" style="transition:transform .2s;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+
+      <!-- Front Yard -->
+      <div class="room-section">
+        <div class="room-header" onclick="toggleRoom(this)">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="room-icon-box" style="background:#1a1030;"><svg width="26" height="26" fill="none" stroke="#a78bfa" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2"/></svg></div>
+            <div>
+              <div style="color:white;font-weight:600;font-size:15px;">Front Yard</div>
+              <div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:2px;">1 of 1 active</div>
+            </div>
+          </div>
+          <svg class="chev" width="18" height="18" fill="none" stroke="rgba(255,255,255,.4)" viewBox="0 0 24 24" style="transition:transform .2s;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+
+      <!-- AUTOMATION LOG -->
+      <h2 style="color:rgba(255,255,255,.4);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin:4px 0 0;">Automation Log</h2>
+      <div style="background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:18px;padding:18px;margin-bottom:16px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+          <span style="color:white;font-weight:700;font-size:14px;">Recent Events</span>
+          <span style="font-size:10px;color:rgba(255,255,255,.25);">live</span>
+        </div>
+        <div id="automation-log" style="max-height:160px;overflow-y:auto;">
+          <div style="color:rgba(255,255,255,.2);font-size:12px;padding:8px 0;">Waiting for events…</div>
         </div>
       </div>
 
     </div>
   </div>
-
 
   <!-- BOTTOM NAV FOR MOBILE DEVICES -->
   <nav class="bottom-nav" style="background:#12142a;border-top:1px solid rgba(255,255,255,.08);flex-shrink:0;justify-content:space-around;align-items:center;padding:8px 4px 14px;">
@@ -181,7 +240,7 @@
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="main.js"></script>
+<script src="camera-motion.js"></script>
 <script src="rooms.js" defer></script>
-  <script src="camera-motion.js"></script>
 </body>
 </html>
