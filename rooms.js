@@ -60,7 +60,7 @@ function toggleRoomDevice(id, name, room) {
   updateRoomCount(room);
 }
 
-// Toggle rooms expand/collapse sate
+// Toggle rooms expand/collapse sate(by rotating the chevron)
 function toggleRoom(header) {
     const chev = header.querySelector('.chev');
     if (chev) chev.style.transform = chev.style.transform === 'rotate(90deg)' ? '' : 'rotate(90deg)';
