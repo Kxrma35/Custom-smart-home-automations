@@ -60,6 +60,12 @@ function toggleRoomDevice(id, name, room) {
   updateRoomCount(room);
 }
 
+// Toggle rooms expand/collapse sate
+function toggleRoom(header) {
+    const chev = header.querySelector('.chev');
+    if (chev) chev.style.transform = chev.style.transform === 'rotate(90deg)' ? '' : 'rotate(90deg)';
+}
+
 // Init: open living room by default 
 document.addEventListener('DOMContentLoaded', () => {
   toggleRoom('living');
