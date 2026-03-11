@@ -93,6 +93,7 @@ https://github.com/Kxrma35/Custom-smart-home-automations.git
 - Socket.io
 - JSON
 - Git & GitHub
+- Raspberry Pi 5 4gb model
 
 ---
 
