@@ -85,6 +85,52 @@
     </div>
   </div>
 
+   <!-- Camera Motion Detection -->
+      <div style="background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:20px;padding:20px;margin-bottom:26px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:32px;height:32px;border-radius:10px;background:rgba(96,165,250,.15);display:flex;align-items:center;justify-content:center;font-size:16px;"></div>
+            <div>
+              <div style="color:white;font-weight:700;font-size:14px;">Hallway Camera Motion</div>
+              <div style="display:flex;align-items:center;gap:6px;margin-top:2px;">
+                <div id="cam-status-dot" style="width:7px;height:7px;border-radius:50%;background:#374151;transition:all .3s;"></div>
+                <span id="cam-status-txt" style="color:rgba(255,255,255,.35);font-size:11px;">Camera off</span>
+              </div>
+            </div>
+          </div>
+          <button id="cam-toggle-btn" onclick="CameraMotion.toggle()"
+            style="padding:8px 16px;border-radius:10px;border:1px solid rgba(139,92,246,.4);background:rgba(139,92,246,.15);color:#a78bfa;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;">
+            Start Camera
+          </button>
+        </div>
+
+        <!-- Motion level bar -->
+        <div style="margin-bottom:12px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
+            <span style="color:rgba(255,255,255,.35);font-size:11px;text-transform:uppercase;letter-spacing:.06em;">Motion Level</span>
+            <span id="motion-level-pct" style="color:rgba(255,255,255,.35);font-size:11px;">0%</span>
+          </div>
+          <div style="height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;">
+            <div id="motion-level-bar" style="height:100%;width:0%;background:#4ade80;border-radius:3px;transition:width .15s ease;"></div>
+          </div>
+        </div>
+
+        <!-- Motion flash indicator -->
+        <div id="cam-motion-indicator" style="border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px;opacity:0;transition:all .3s;">
+          <span style="font-size:18px;"></span>
+          <span style="color:#f87171;font-size:13px;font-weight:600;">Motion detected!</span>
+        </div>
+
+        <!-- Sensitivity controls -->
+        <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+          <span style="color:rgba(255,255,255,.25);font-size:11px;">Sensitivity:</span>
+          <button onclick="CameraMotion.setSensitivity('low')"    style="padding:4px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);color:rgba(255,255,255,.4);font-size:11px;cursor:pointer;">Low</button>
+          <button onclick="CameraMotion.setSensitivity('medium')" style="padding:4px 10px;border-radius:8px;border:1px solid rgba(139,92,246,.3);background:rgba(139,92,246,.1);color:#a78bfa;font-size:11px;cursor:pointer;">Medium</button>
+          <button onclick="CameraMotion.setSensitivity('high')"   style="padding:4px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);color:rgba(255,255,255,.4);font-size:11px;cursor:pointer;">High</button>
+          <span id="sensitivity-label" style="color:rgba(255,255,255,.25);font-size:11px;margin-left:4px;">Medium</span>
+        </div>
+      </div>
+
    <!-- Automation Log -->
       <div style="background:#14162e;border:1px solid rgba(255,255,255,.05);border-radius:20px;padding:18px;margin-bottom:14px;">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
