@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/hero-icon-js/hero-icon-outline.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="/css/index.css">
 </head>
 <body style="display:flex;flex-direction:column;height:100%;overflow:hidden;">
 <div id="toast"></div>
@@ -21,7 +21,7 @@
       </div>
       <span style="color:white;font-weight:700;font-size:16px;">Smart Home</span>
     </div>
-    <a href="home.html"     class="sidebar-link active"><hero-icon-outline name="home"           width="20" height="20"></hero-icon-outline>Home</a>
+    <a href="index.html"     class="sidebar-link active"><hero-icon-outline name="home"           width="20" height="20"></hero-icon-outline>Home</a>
     <a href="rooms.html"    class="sidebar-link"       ><hero-icon-outline name="view-grid"      width="20" height="20"></hero-icon-outline>Rooms</a>
     <a href="devices.html"  class="sidebar-link"       ><hero-icon-outline name="lightning-bolt" width="20" height="20"></hero-icon-outline>Devices</a>
     <a href="settings.html" class="sidebar-link"       ><hero-icon-outline name="cog"            width="20" height="20"></hero-icon-outline>Settings</a>
@@ -295,7 +295,7 @@
 
   <!-- BOTTOM NAV FOR MOBILE DEVICES -->
    <nav class="bottom-nav" style="background:#12142a;border-top:1px solid rgba(255,255,255,.08);flex-shrink:0;justify-content:space-around;align-items:center;padding:8px 4px 14px;">
-    <a href="home.html"     class="mnav-btn"><div class="mnav-pill" style="background:rgba(139,92,246,.25);"><hero-icon-outline name="home"           width="24" height="24" style="color:#a78bfa;"></hero-icon-outline></div><span class="mnav-label" style="color:#a78bfa;">Home</span></a>
+    <a href="index.html"     class="mnav-btn"><div class="mnav-pill" style="background:rgba(139,92,246,.25);"><hero-icon-outline name="home"           width="24" height="24" style="color:#a78bfa;"></hero-icon-outline></div><span class="mnav-label" style="color:#a78bfa;">Home</span></a>
     <a href="rooms.html"    class="mnav-btn"><div class="mnav-pill"><hero-icon-outline name="view-grid"      width="24" height="24" style="color:rgba(255,255,255,.45);"></hero-icon-outline></div><span class="mnav-label" style="color:rgba(255,255,255,.45);">Rooms</span></a>
     <a href="devices.html"  class="mnav-btn"><div class="mnav-pill"><hero-icon-outline name="lightning-bolt" width="24" height="24" style="color:rgba(255,255,255,.45);"></hero-icon-outline></div><span class="mnav-label" style="color:rgba(255,255,255,.45);">Devices</span></a>
     <a href="settings.html" class="mnav-btn"><div class="mnav-pill"><hero-icon-outline name="cog"            width="24" height="24" style="color:rgba(255,255,255,.45);"></hero-icon-outline></div><span class="mnav-label" style="color:rgba(255,255,255,.45);">Settings</span></a>
@@ -304,8 +304,8 @@
 </div>
 
   <script src="/socket.io/socket.io.js"></script>
-  <script src="main.js"></script>
-  <script src="home.js" defer></script>
-  <script src="camera-motion.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/index.js" defer></script>
+  <script src="/js/camera-motion.js"></script>
 </body>
 </html>
