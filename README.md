@@ -100,6 +100,8 @@ https://github.com/Kxrma35/Custom-smart-home-automations.git
 
 - The hallway camera still does not work because of bugs within the server.js in the raspberry pi
 
+- In the automation log on the homepage and rooms page, it should read the timestamps but it reads invalid only
+
 ---
 
 ##  Support & Contact
