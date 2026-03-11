@@ -1,10 +1,3 @@
-
-//  * Shared across home.html, rooms.html, devices.html, settings.html
-//  *
-//  * Connects to the backend via Socket.io (served automatically by the server).
-//  * Handles: Pi CPU temp display, device state sync, thermostat, mode buttons.
-//  */
-
 const socket = io(); // Connects to same host — no URL needed
 
 // Pi CPU Temperature
