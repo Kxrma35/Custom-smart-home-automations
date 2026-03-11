@@ -62,7 +62,7 @@ socket.on('log-update', (entries) => {
   const logEl = document.getElementById('automation-log');
   if (!logEl) return;
   logEl.innerHTML = entries.map(e => {
-    const t = new Date(e.time).toTimeString().slice(0, 8);
+    const t = new Date(e.time || Date.now()).toTimeString().slice(0, 5); // ✅ fixed
     return `<div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:12px;">
       <span style="color:rgba(255,255,255,.35);margin-right:8px;">${t}</span>
       <span style="color:rgba(255,255,255,.75);">${e.message}</span>
