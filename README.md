@@ -31,6 +31,12 @@ This project is built primarily around **JavaScript**, using a combination of su
 
 ---
 
+## Screenshots
+![Home screenshot](assets/sm1.png)
+![Rooms screenshot](assets/sm2.png)
+![Devices screenshot](assets/sm3.png)
+![Settings screenshot](assets/sm4.png)
+
 ##  Features
 
 ###  Rooms Page
